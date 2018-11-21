@@ -1,0 +1,32 @@
+.spider {
+    display: flex;
+    position: relative;
+    width: 50px;
+    height: 500px;
+    flex-direction: column;
+
+    .spider-string {
+        width: 1px;
+        flex: 1;
+        background-color: #f00;
+        margin: 0 auto;
+    }
+
+    .spider-body {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    &:hover .spider-string {
+        animation: spider 2s normal forwards;
+    }
+}
+
+@keyframes spider {
+    0% {
+        flex: 1;
+    }
+    100% {
+        flex: 0;
+    }
+}

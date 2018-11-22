@@ -1,28 +1,42 @@
+.spiders {
+    display: flex;
+    justify-content: center;
+}
+
 .spider {
     display: flex;
     position: relative;
-    width: 50px;
-    height: 500px;
+    width: 100px;
     flex-direction: column;
 
     .spider-string {
-        width: 1px;
+        width: 5px;
         flex: 1;
-        background-color: #f00;
         margin: 0 auto;
     }
 
     .spider-body {
-        font-size: 3em;
+        font-size: 2.5em;
         text-align: center;
     }
 
-    &:hover .spider-string {
-        animation: spider 2s normal forwards;
+    &.animating .spider-string {
+        animation:
+            shorten 2s normal 0s forwards,
+            extend 2s normal 6s forwards;
     }
 }
 
-@keyframes spider {
+@keyframes extend {
+    0% {
+        flex: 0;
+    }
+    100% {
+        flex: 1;
+    }
+}
+
+@keyframes shorten {
     0% {
         flex: 1;
     }

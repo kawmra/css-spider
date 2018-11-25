@@ -19,7 +19,7 @@ function createSpider(): HTMLElement {
     spider.style.height = `${Math.random() * (MAX_HEIGHT - MIN_HEIGHT) + MIN_HEIGHT}px`
     spider.appendChild(spiderString)
     spider.appendChild(spiderBody)
-    setListeners(spider)
+    setListeners(spider, spiderBody)
     return spider
 }
 
@@ -29,8 +29,8 @@ function createElement(className: string): HTMLElement {
     return e
 }
 
-function setListeners(spider: HTMLElement) {
-    spider.addEventListener('mouseenter', (e) => {
+function setListeners(spider: HTMLElement, spiderBody: HTMLElement) {
+    spiderBody.addEventListener('mouseenter', (e) => {
         if (!spider.classList.contains('animating')) {
             spider.classList.add('animating')
             setTimeout(() => {

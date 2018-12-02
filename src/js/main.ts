@@ -12,14 +12,16 @@ function createSpider(): HTMLElement {
     const color = `#${createRandomColorHex()}`
     const spiderString = createElement('spider-string')
     spiderString.style.backgroundColor = color
+    const spiderTerritory = createElement('spider-territory')
     const spiderBody = createElement('spider-body')
     spiderBody.innerHTML = '<i class="fas fa-spider"></i>'
+    spiderBody.appendChild(spiderTerritory)
     const spider = createElement('spider')
     spider.style.color = color
     spider.style.height = `${Math.random() * (MAX_HEIGHT - MIN_HEIGHT) + MIN_HEIGHT}px`
     spider.appendChild(spiderString)
     spider.appendChild(spiderBody)
-    setListeners(spider, spiderBody)
+    setListeners(spider, spiderTerritory)
     return spider
 }
 
@@ -29,8 +31,8 @@ function createElement(className: string): HTMLElement {
     return e
 }
 
-function setListeners(spider: HTMLElement, spiderBody: HTMLElement) {
-    spiderBody.addEventListener('mouseenter', (e) => {
+function setListeners(spider: HTMLElement, spiderTerritory: HTMLElement) {
+    spiderTerritory.addEventListener('mouseenter', (e) => {
         if (!spider.classList.contains('animating')) {
             spider.classList.add('animating')
             setTimeout(() => {

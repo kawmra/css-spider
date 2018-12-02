@@ -1,3 +1,5 @@
+$spider-size: 60px;
+
 .spiders {
     display: flex;
     justify-content: center;
@@ -6,7 +8,7 @@
 .spider {
     display: flex;
     position: relative;
-    width: 100px;
+    width: $spider-size * 2;
     flex-direction: column;
 
     .spider-string {
@@ -16,8 +18,22 @@
     }
 
     .spider-body {
-        font-size: 2.5em;
+        position: relative;
+        width: $spider-size;
+        height: $spider-size;
+        margin: 0 auto;
+        line-height: $spider-size;
+        font-size: $spider-size * 0.8;
         text-align: center;
+
+        .spider-territory {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            border-radius: 100%;
+        }
     }
 
     &.animating .spider-string {
@@ -42,5 +58,6 @@
     }
     100% {
         flex: 0;
+        margin-top: $spider-size * -1.1;
     }
 }
